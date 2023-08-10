@@ -9,8 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@chakra-ui/next-js": "^2.1.5",
+    "@chakra-ui/react": "^2.8.0",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@saas-ui/react": "^2.0.6",
     "eslint": "8.46.0",
     "eslint-config-next": "13.4.13",
+    "framer-motion": "^6.5.1",
     "next": "13.4.13",
     "react": "18.2.0",
     "react-dom": "18.2.0"
