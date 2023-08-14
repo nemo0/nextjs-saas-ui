@@ -15,6 +15,7 @@ import {
   SidebarSection,
   NavItem,
   PersonaAvatar,
+  SidebarToggleButton,
 } from '@saas-ui/react';
 import Image from 'next/image';
 
@@ -26,6 +27,7 @@ export default function AppShellComponent({ children }) {
       variant='static'
       sidebar={
         <Sidebar width='25%'>
+          <SidebarToggleButton />
           <SidebarSection direction='row'>
             <Image height='100' src={Logo} width='100' alt='Logo' />
             <Spacer />
@@ -44,6 +46,7 @@ export default function AppShellComponent({ children }) {
           </SidebarSection>
           <SidebarSection flex='1' overflowY='auto' minH='100vh'>
             <NavItem>Home</NavItem>
+            <NavItem isActive={true}>Users</NavItem>
             <NavItem>Analytics</NavItem>
             <NavItem>Settings</NavItem>
           </SidebarSection>
