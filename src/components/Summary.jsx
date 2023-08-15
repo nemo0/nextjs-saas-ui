@@ -1,7 +1,7 @@
 "use client";
 import { Box, Grid, GridItem, Heading, Text } from "@chakra-ui/react";
 
-const Summary = () => {
+const Summary = ({ currentUsersCount, oldUsersCount}) => {
   return (
     <Box
       display="flex"
@@ -26,7 +26,7 @@ const Summary = () => {
             Total Users
           </Heading>
           <Text fontSize="2.25rem" fontWeight="700">
-            10
+            {currentUsersCount}
           </Text>
         </GridItem>
         <GridItem
@@ -36,15 +36,15 @@ const Summary = () => {
         >
           <Box display="flex" flexDirection="row">
             <Heading marginBottom="0.5rem" fontSize="1.25rem" fontWeight="600">
-              New Users (Month)
+              New Users (Q3 23)
             </Heading>
           </Box>
           <div>
             <Text fontSize="2.25rem" fontWeight="700">
-              8
+              {currentUsersCount-oldUsersCount}
             </Text>
             <Text color="green" fontFamily="monospace" fontSize="1.5rem">
-              +300%
+              +{(currentUsersCount-oldUsersCount)/oldUsersCount*100}%
             </Text>
           </div>
         </GridItem>

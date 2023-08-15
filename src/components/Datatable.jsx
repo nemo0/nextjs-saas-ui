@@ -9,7 +9,7 @@ export default function DatatableComponent({ columns, data }) {
       <Box width={"40%"} mb={3}>
         <SearchInput placeholder="Search" />
       </Box>
-      <DataTable columns={columns} data={data} />
+      <DataTable size="md" columns={columns} data={data} />
     </Box>
   );
 }

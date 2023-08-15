@@ -49,7 +49,8 @@ const Recent = () => {
               <Text fontSize="lg" color="black" _dark={{ color: "white" }}>
                 Samantha
               </Text>{" "}
-              <Text color="muted">signed up.</Text>
+              <Text color="muted">subscription changed to </Text>{" "}
+              <Text color="black"> 12_PREMIUM</Text>
             </div>
           </TimelineContent>
         </TimelineItem>
@@ -69,7 +70,7 @@ const Recent = () => {
               <Text fontSize="lg" color="black" _dark={{ color: "white" }}>
                 Bret
               </Text>{" "}
-              <Text color="muted">signed up.</Text>
+              <Text color="muted">subscription cancelled. </Text>
             </div>
           </TimelineContent>
         </TimelineItem>
