@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import {
   Box,
@@ -8,49 +8,62 @@ import {
   MenuItem,
   MenuList,
   Spacer,
-} from '@chakra-ui/react';
+} from "@chakra-ui/react";
 import {
   AppShell,
   Sidebar,
   SidebarSection,
   NavItem,
   PersonaAvatar,
-} from '@saas-ui/react';
-import Image from 'next/image';
+  SidebarToggleButton,
+} from "@saas-ui/react";
 
-import Logo from 'public/logoipsum-288.svg';
+import Image from "next/image";
+
+import Logo from "public/logoipsum-288.svg";
 
 export default function AppShellComponent({ children }) {
   return (
     <AppShell
-      variant='static'
+      variant="static"
       sidebar={
-        <Sidebar width='25%'>
-          <SidebarSection direction='row'>
-            <Image height='100' src={Logo} width='100' alt='Logo' />
+        <Sidebar
+          width="25%"
+          background="linear-gradient(to bottom, #0f0c29, #302b63, #24243e)"
+        >
+          <SidebarToggleButton color="white" />
+          <SidebarSection direction="row">
+            <Image height="100" src={Logo} width="100" alt="Logo" />
             <Spacer />
             <Menu>
               <MenuButton
                 as={IconButton}
                 icon={
-                  <PersonaAvatar presence='online' size='xs' name='John Doe' />
+                  <PersonaAvatar presence="online" size="xs" name="John Doe" color="white" />
                 }
-                variant='ghost'
+                variant="ghost"
               />
               <MenuList>
                 <MenuItem>Sign out</MenuItem>
               </MenuList>
             </Menu>
           </SidebarSection>
-          <SidebarSection flex='1' overflowY='auto' minH='100vh'>
-            <NavItem>Home</NavItem>
-            <NavItem>Analytics</NavItem>
-            <NavItem>Settings</NavItem>
+          <SidebarSection flex="1" overflowY="auto" minH="100vh">
+            <NavItem color="white">Home</NavItem>
+            <NavItem
+              color="white"
+              _active={{ backgroundColor: "white", color: "black" }}
+              isActive={true}
+            >
+              Users
+            </NavItem>
+            <NavItem color="white">Analytics</NavItem>
+            <NavItem color="white">Settings</NavItem>
           </SidebarSection>
         </Sidebar>
       }
     >
-      <Box as='main' flex='1' py='2' px='4'>
+      <Box as="main" flex="1" py="2" px="4">
         {children}
       </Box>
     </AppShell>
