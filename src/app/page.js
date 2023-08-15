@@ -47,7 +47,7 @@ export default async function Home() {
         }}
       >
         <div style={{ display: 'flex', width: '100%' }}>
-          <Summary />
+          <Summary currentUsersCount={users.length} oldUsersCount={2} />
         </div>
         <div style={{ display: 'flex', flexDirection: 'row' }}>
           <div
@@ -62,7 +62,7 @@ export default async function Home() {
           </div>
           <div
             style={{
-              
+
               borderRadius: '0.5rem',
               padding: '1rem',
               width: '30%',
@@ -75,7 +75,7 @@ export default async function Home() {
 
         </div>
 
-        
+
       </div>
     </AppShellComponent>
   );
