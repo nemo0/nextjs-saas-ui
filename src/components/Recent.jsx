@@ -1,5 +1,4 @@
-"use client";
-import { Heading, Text } from "@chakra-ui/react";
+import { Card, CardBody, CardHeader, Heading, Text } from "@chakra-ui/react";
 import {
   Timeline,
   TimelineItem,
@@ -10,73 +9,67 @@ import {
   PersonaAvatar,
 } from "@saas-ui/react";
 
-const Recent = () => {
+export function Recent() {
   return (
-    <div>
-      <Text marginBottom="1rem" fontSize="1.5rem" fontWeight="600">
-        Recent Activity
-      </Text>
-      <Timeline variant="outline">
-        <TimelineItem>
-          <TimelineSeparator>
-            <TimelineIcon>
-              <PersonaAvatar
-                name="Nicholas Runolfsdottir V"
-                size="xs"
-                presence="online"
-              />
-            </TimelineIcon>
-            <TimelineTrack />
-          </TimelineSeparator>
-          <TimelineContent pt="2" px="3">
-            <div>
-              <Text fontSize="lg" color="black" _dark={{ color: "white" }}>
-                Maxime_Nienow
-              </Text>{" "}
+    <Card variant="solid" bg="transparent">
+      <CardHeader pb="0">
+        <Heading as="h3" size="md">
+          Recent Activity
+        </Heading>
+      </CardHeader>
+      <CardBody>
+        <Timeline variant="outline">
+          <TimelineItem>
+            <TimelineSeparator>
+              <TimelineIcon>
+                <PersonaAvatar
+                  name="Nicholas Runolfsdottir V"
+                  size="xs"
+                  presence="online"
+                />
+              </TimelineIcon>
+              <TimelineTrack />
+            </TimelineSeparator>
+            <TimelineContent pt="2" px="3">
+              <Text fontWeight="medium">Maxime_Nienow</Text>
               <Text color="muted">signed up.</Text>
-            </div>
-          </TimelineContent>
-        </TimelineItem>
-        <TimelineItem>
-          <TimelineSeparator>
-            <TimelineIcon>
-              <PersonaAvatar name="Clementine Bauch" size="xs" presence="dnd" />
-            </TimelineIcon>
-            <TimelineTrack />
-          </TimelineSeparator>
-          <TimelineContent pt="2" px="3">
-            <div>
-              <Text fontSize="lg" color="black" _dark={{ color: "white" }}>
-                Samantha
-              </Text>{" "}
-              <Text color="muted">subscription changed to </Text>{" "}
-              <Text color="black"> 12_PREMIUM</Text>
-            </div>
-          </TimelineContent>
-        </TimelineItem>
-        <TimelineItem>
-          <TimelineSeparator>
-            <TimelineIcon>
-              <PersonaAvatar
-                name="Leanne Graham"
-                size="xs"
-                presence="offline"
-              />
-            </TimelineIcon>
-            <TimelineTrack />
-          </TimelineSeparator>
-          <TimelineContent pt="2" px="3">
-            <div>
-              <Text fontSize="lg" color="black" _dark={{ color: "white" }}>
-                Bret
-              </Text>{" "}
-              <Text color="muted">subscription cancelled. </Text>
-            </div>
-          </TimelineContent>
-        </TimelineItem>
-      </Timeline>
-    </div>
+            </TimelineContent>
+          </TimelineItem>
+          <TimelineItem>
+            <TimelineSeparator>
+              <TimelineIcon>
+                <PersonaAvatar
+                  name="Clementine Bauch"
+                  size="xs"
+                  presence="dnd"
+                />
+              </TimelineIcon>
+              <TimelineTrack />
+            </TimelineSeparator>
+            <TimelineContent pt="2" px="3">
+              <Text fontWeight="medium">Samantha</Text>
+              <Text color="muted">subscription changed to </Text>
+              <Text>12_PREMIUM</Text>
+            </TimelineContent>
+          </TimelineItem>
+          <TimelineItem>
+            <TimelineSeparator>
+              <TimelineIcon>
+                <PersonaAvatar
+                  name="Leanne Graham"
+                  size="xs"
+                  presence="offline"
+                />
+              </TimelineIcon>
+              <TimelineTrack />
+            </TimelineSeparator>
+            <TimelineContent pt="2" px="3">
+              <Text fontWeight="medium">Bret</Text>
+              <Text color="muted">subscription cancelled.</Text>
+            </TimelineContent>
+          </TimelineItem>
+        </Timeline>
+      </CardBody>
+    </Card>
   );
-};
-
-export default Recent;
+}

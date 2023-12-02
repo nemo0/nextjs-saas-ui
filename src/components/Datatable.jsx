@@ -1,15 +1,33 @@
 "use client";
 
-import { Box } from "@chakra-ui/react";
-import { DataTable, SearchInput } from "@saas-ui/react";
+import React from "react";
+import { Card, CardBody, CardHeader } from "@chakra-ui/react";
+import { DataTable as DataTableRoot, SearchInput } from "@saas-ui/react";
+import { getFilteredRowModel } from "@tanstack/react-table";
 
-export default function DatatableComponent({ columns, data }) {
+export function DataTable({ columns, data }) {
+  const [globalFilter, setGlobalFilter] = React.useState("");
+
   return (
-    <Box overflowX="auto">
-      <Box width={"40%"} mb={3}>
-        <SearchInput placeholder="Search" />
-      </Box>
-      <DataTable size="md" columns={columns} data={data} />
-    </Box>
+    <Card>
+      <CardHeader>
+        <SearchInput
+          width="40%"
+          placeholder="Search"
+          value={globalFilter}
+          onChange={(e) => setGlobalFilter(e.target.value)}
+          onReset={() => setGlobalFilter("")}
+        />
+      </CardHeader>
+      <CardBody overflowX="auto" px="0">
+        <DataTableRoot
+          columns={columns}
+          data={data}
+          getFilteredRowModel={getFilteredRowModel()}
+          state={{ globalFilter }}
+          onGlobalFilterChange={setGlobalFilter}
+        />
+      </CardBody>
+    </Card>
   );
 }
