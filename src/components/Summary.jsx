@@ -1,73 +1,69 @@
-"use client";
-import { Box, Grid, GridItem, Heading, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Card,
+  CardBody,
+  Grid,
+  GridItem,
+  Stat,
+  StatLabel,
+  StatNumber,
+  StatHelpText,
+  StatArrow,
+} from "@chakra-ui/react";
 
-const Summary = ({ currentUsersCount, oldUsersCount}) => {
+export function Summary({ currentUsersCount, oldUsersCount }) {
   return (
-    <Box
-      display="flex"
-      flexDirection="column"
-      width="100%"
-      marginBottom="1.5rem"
-      borderRadius="0.375rem"
-      backgroundColor="white"
-      padding="1.5rem"
-      boxShadow="0px 2px 4px rgba(0, 0, 0, 0.1)"
-    >
-      <Heading marginBottom="1rem" fontSize="1.5rem" fontWeight="600">
-        Summary
-      </Heading>
-      <Grid templateColumns="repeat(3, 1fr)" gap="1rem">
-        <GridItem
-          borderRadius="0.375rem"
-          backgroundColor="#F3F4F6"
-          padding="1rem"
-        >
-          <Heading marginBottom="0.5rem" fontSize="1.25rem" fontWeight="600">
-            Total Users
-          </Heading>
-          <Text fontSize="2.25rem" fontWeight="700">
-            {currentUsersCount}
-          </Text>
+    <Box mb="8" w="full">
+      <Grid templateColumns="repeat(4, 1fr)" gap="4" width="full">
+        <GridItem as={Card}>
+          <CardBody>
+            <Stat>
+              <StatLabel>Total Users</StatLabel>
+              <StatNumber>{currentUsersCount}</StatNumber>
+              <StatHelpText>
+                <StatArrow type="increase" />
+                80%
+              </StatHelpText>
+            </Stat>
+          </CardBody>
         </GridItem>
-        <GridItem
-          borderRadius="0.375rem"
-          backgroundColor="#F3F4F6"
-          padding="1rem"
-        >
-          <Box display="flex" flexDirection="row">
-            <Heading marginBottom="0.5rem" fontSize="1.25rem" fontWeight="600">
-              New Users (Q3 23)
-            </Heading>
-          </Box>
-          <div>
-            <Text fontSize="2.25rem" fontWeight="700">
-              {currentUsersCount-oldUsersCount}
-            </Text>
-            <Text color="green" fontFamily="monospace" fontSize="1.5rem">
-              +{(currentUsersCount-oldUsersCount)/oldUsersCount*100}%
-            </Text>
-          </div>
+        <GridItem as={Card}>
+          <CardBody>
+            <Stat>
+              <StatLabel>New Users (Q3 23)</StatLabel>
+              <StatNumber>{currentUsersCount - oldUsersCount}</StatNumber>
+              <StatHelpText>
+                <StatArrow type="increase" />
+                {((currentUsersCount - oldUsersCount) / oldUsersCount) * 100}%
+              </StatHelpText>
+            </Stat>
+          </CardBody>
         </GridItem>
-        <GridItem
-          borderRadius="0.375rem"
-          backgroundColor="#F3F4F6"
-          padding="1rem"
-        >
-          <Heading marginBottom="0.5rem" fontSize="1.25rem" fontWeight="600">
-            Revenue
-          </Heading>
-          <div>
-            <Text fontSize="2.25rem" fontWeight="700">
-              $12,345
-            </Text>
-            <Text color="green" fontFamily="monospace" fontSize="1.5rem">
-              +78%
-            </Text>
-          </div>
+        <GridItem as={Card}>
+          <CardBody>
+            <Stat>
+              <StatLabel>Revenue</StatLabel>
+              <StatNumber> $12,345</StatNumber>
+              <StatHelpText>
+                <StatArrow type="increase" />
+                78%
+              </StatHelpText>
+            </Stat>
+          </CardBody>
+        </GridItem>
+        <GridItem as={Card}>
+          <CardBody>
+            <Stat>
+              <StatLabel>Churn</StatLabel>
+              <StatNumber>0</StatNumber>
+              <StatHelpText>
+                <StatArrow type="" />
+                0%
+              </StatHelpText>
+            </Stat>
+          </CardBody>
         </GridItem>
       </Grid>
     </Box>
   );
-};
-
-export default Summary;
+}
